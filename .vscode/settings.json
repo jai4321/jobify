@@ -1,0 +1,6 @@
+{
+    "typescript.inlayHints.parameterTypes.enabled": false,
+    "emmet.includeLanguages": {
+        "javascript": "javascriptreact"
+    }
+}
