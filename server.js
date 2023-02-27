@@ -8,26 +8,18 @@ import authRouter from "./routes/authRoutes.js"
 import jobsRouter from "./routes/jobsRoutes.js"
 
 dotenv.config();
-
 const app = express();
-
 const port =  process.env.PORT || 5000;
-
-app.use(express.json())
-
+app.use(express.json());
 app.get('/', (req, res)=>{
     // throw new Error('error');
     res.send('Welcome!');
 })
-
 app.use('/api/v1/auth', authRouter);
 app.use('/api/v1/jobs', jobsRouter);
-
 //Middleware
 app.use(notFoundMiddleware);
-
 app.use(errorHandlerMiddleware);
-
 const start = async () => {
     try {
         await connectDB(process.env.MONGO_URL);
@@ -38,5 +30,4 @@ const start = async () => {
         console.log(error)
     }
 }
-
 start();
